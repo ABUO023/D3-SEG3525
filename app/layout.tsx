@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Manrope, Space_Grotesk } from 'next/font/google';
 import './globals.css';
+import { DormDashProvider } from './dormdash-context';
 
 const headingFont = Space_Grotesk({
   variable: '--font-heading',
@@ -24,7 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${headingFont.variable} ${bodyFont.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <DormDashProvider>{children}</DormDashProvider>
+      </body>
     </html>
   );
 }
